@@ -22,7 +22,7 @@ use Illuminate\Routing\Controller as BaseController;
  *     )
  * ),
  * @OA\Server(
- *     url="/public/api",
+ *     url="/api",
  * ),
  */
 class Controller extends BaseController
