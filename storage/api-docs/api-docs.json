@@ -1,0 +1,522 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Vigenesia Api Documentation",
+        "description": "Vigenesia Api Documentation",
+        "contact": {
+            "name": "Dwija Saptahadi",
+            "email": "12201033@bsi.ac.id"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/public/api"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login",
+                "description": "Login",
+                "operationId": "d55f416d61f094eb6038b566bc6e4596",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "admin@admin.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Login Berhasil"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 1,
+                                                "nama": "string",
+                                                "profesi": "string",
+                                                "email": "email@email.com",
+                                                "created_at": "string",
+                                                "updated_at": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{userId}/motivasi": {
+            "get": {
+                "tags": [
+                    "Motivasi"
+                ],
+                "summary": "Ambil data motivasi",
+                "description": "Ambil data motivasi",
+                "operationId": "fc0c9aae07122b62a3eaced8da6f8e18",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "user_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "isi_motivasi": {
+                                                        "type": "string",
+                                                        "example": "string"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "string"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Motivasi"
+                ],
+                "summary": "Simpan data motivasi",
+                "description": "Simpan data motivasi",
+                "operationId": "777d6ebb9f7307ed6761e2fbeda9d9e5",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "isi_motivasi"
+                                ],
+                                "properties": {
+                                    "isi_motivasi": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Motivasi berhasil tersimpan"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 1,
+                                                "user_id": "string",
+                                                "isi_motivasi": "string",
+                                                "created_at": "string",
+                                                "updated_at": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{userId}/motivasi/{id}": {
+            "put": {
+                "tags": [
+                    "Motivasi"
+                ],
+                "summary": "Ubah data motivasi",
+                "description": "Ubah data motivasi",
+                "operationId": "db4b276c56bb5cb311830f03baf52d95",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Motivasi ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "isi_motivasi"
+                                ],
+                                "properties": {
+                                    "isi_motivasi": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Motivasi berhasil diubah"
+                                        },
+                                        "data": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Motivasi"
+                ],
+                "summary": "Hapus data motivasi",
+                "description": "Hapus data motivasi",
+                "operationId": "21a3b13e204a419595bdf2163fd8c8ae",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Motivasi ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Motivasi berhasil dihapus"
+                                        },
+                                        "data": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/registrasi": {
+            "post": {
+                "tags": [
+                    "Registrasi"
+                ],
+                "summary": "Registrasi",
+                "description": "Registrasi",
+                "operationId": "b055154dac0109e34f4b16d6fb2130de",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nama",
+                                    "profesi",
+                                    "email",
+                                    "password",
+                                    "konfirmasi_password"
+                                ],
+                                "properties": {
+                                    "nama": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    },
+                                    "profesi": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "admin@admin.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    },
+                                    "konfirmasi_password": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Registrasi Berhasil"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "id": 1,
+                                                "nama": "string",
+                                                "profesi": "string",
+                                                "email": "email@email.com",
+                                                "created_at": "string",
+                                                "updated_at": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Ambil data profil",
+                "description": "Ambil data profil",
+                "operationId": "432e5f69850a1730d83fb71929f34e1a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "nama": {
+                                            "type": "string"
+                                        },
+                                        "profesi": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "email@email.com"
+                                        },
+                                        "created_at": {
+                                            "type": "string"
+                                        },
+                                        "updated_at": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}/ubah-password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Ubah Password",
+                "description": "Ubah Password",
+                "operationId": "a8e482757ada3b286b5c44e7406909d1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "password_lama",
+                                    "password_baru",
+                                    "konfirmasi_password_baru"
+                                ],
+                                "properties": {
+                                    "password_lama": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    },
+                                    "password_baru": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    },
+                                    "konfirmasi_password_baru": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Password berhasil diubah"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
